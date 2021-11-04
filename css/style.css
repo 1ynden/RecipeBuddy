@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+body{
+  color: #374141;
+  font-size: 16px;
+  font-family: 'Nunito', serif;
+  background-color: #EEFFEE;
+}
+
+nav a:link, nav a:visited {
+  color: #374141;
+  text-decoration: none;
+}
+nav a:hover, nav a:active  {
+  color: #DDFFDD;
+  text-decoration: underline;
+}
+nav a.active {
+  color: #273121;
+}
+
+.header-grid{
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-gap: 10px;
+  background-color: #21F396;
+  padding: 10px;
+  padding-left: 20px;
+  grid-template-areas:
+    "logo search login"
+}
+
+.header-grid div{
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+  font-weight: bolder;
+  margin: auto;
+}
+.header-grid a{
+  padding-right: 20px;
+}
+
+.logo{
+  grid-area: logo;
+}
+
+.login{
+  grid-area: login;
+}
+
+.search {
+  grid-area: search;
+  overflow: hidden;
+  float: none;
+  margin: auto;
+}
+.search input[type=text] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  font-size: 17px;
+  border: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  max-width: 100%;
+}
+
+.search button {
+  float: none;
+  padding: 15px 15px;
+  margin-top: 8px;
+  margin-right: 16px;
+  margin-left: -10px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+  cursor: pointer;
+}
+
+.search form{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search button:hover {
+  background: #ccc;
+}
+
+.trending{
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.trending h1{
+  font-weight: bolder;
+  font-size: 36px;
+  padding-bottom: 12px;
+}
+
+.trending .card{
+  border: 4px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  background-color: #fff;
+  max-height: 300px;
+}
+.trending .card:hover{
+  background-color: #eefffa;
+}
+.trending .card img{
+  border: 4px solid #ccc;
+  border-radius: 7px;
+  margin: 20px;
+  height: 200px;
+  width: 200px;
+}
+.trending .card li{font-size: 20px; padding-bottom: 4px;}
+
+.max-lines {
+  display: block;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 80px;
+  line-height: 1.8em;
+}
+footer{
+  background-color: #21F396;
+  text-align: center;
+  height: 3em;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+footer p{
+  padding-top: 1em;
+}
+@media (max-width: 966px){
+  .header-grid div{
+    font-size: 22px;
+  }
+  .search input[type=text]{
+    max-width: 50%;
+  }
+}
