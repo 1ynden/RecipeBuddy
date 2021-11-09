@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recipe</title>
+    <link rel="stylesheet" href="css/create.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Lato:300,900" rel="stylesheet">
+    <link href="css/mini_reset.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link rel="icon" href="https://static.thenounproject.com/png/369577-200.png">
+  </head>
+  <body>
+    <main id="page">
+      <nav>
+        <div class="header-grid">
+          <div class="logo"> RecipeBuddy</div>
+
+          <!--- Search Bar --->
+          <div class="search">
+            <form action="/action_page.php">
+              <input type="text" placeholder="Search.." name="search" size="60">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+
+          <div class="login">
+            <a href="#">Recipes</a>
+            <a href="#">Pantry</a>
+            <a href="#">Settings</a>
+            <a href="index.html">Logout</a>
+          </div>
+        </div>
+      </nav>
+      <form>
+        <div class="body">
+          <h1> Create a Recipe</h1><div></div><div></div>
+          <div class="item">
+            <label>Recipe Name: </label>
+            <input type="text" placeholder="Enter a Name" name="name" required>
+          </div>
+          <br>
+          <div class="item desc">
+            <label>Descrition: </label>
+            <input type="text" placeholder="Enter a Description" name="desc" required>
+          </div>
+          <br>
+          <div class="center">
+            <div class="item">
+              <label>Ingredients: </label>
+              <input type="text" placeholder="Enter a list of ingredients" name="ingrs" required>
+            </div>
+            <div class="item">
+              <label>Appliances: </label>
+              <input type="text" placeholder="Enter a list of appliances" name="apps">
+            </div>
+          </div>
+          <br>
+          <div class="item desc">
+            <label>Instructions: </label>
+            <input type="text" placeholder="Enter Instructions" name="instr" required>
+          </div>
+          <br>
+          <button type="submit">Login</button>
+          <a href="register.html"><button type="button">Register</button></a>
+          <a href="#">Forgot password?</a>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
