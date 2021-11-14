@@ -5,6 +5,7 @@ body{
   font-size: 16px;
   font-family: 'Nunito', serif;
   background-color: #eee;
+  line-height: normal;
 }
 
 nav a:link, nav a:visited {
@@ -49,6 +50,9 @@ nav a.active {
 
 .login{
   grid-area: login;
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
 }
 
 .search {
@@ -90,9 +94,8 @@ nav a.active {
 .search button:hover {
   background: #ccc;
 }
-
-.trending{
-  margin-top: -24px;
+.body{
+  line-height: 2;
   max-width: 85%;
   margin-left: auto;
   padding-left: 40px;
@@ -100,58 +103,25 @@ nav a.active {
   padding-right: 40px;
   background-color: #fff;
 }
-
-.trending h1{
-  font-weight: bolder;
-  font-size: 36px;
-  padding-bottom: 12px;
-}
-
-.trending .card{
-  border: 4px solid #ddd;
-  border-radius: 10px;
+.body .item{
   display: flex;
-  background-color: #fff;
-  max-height: 300px;
+  flex-direction: column;
 }
-.trending .card:hover{
-  background-color: #ffeef5;
+.body input[type="text"]{
+  height: 40px;
 }
-.trending .card img{
-  border: 4px solid #ccc;
-  border-radius: 7px;
-  margin: 20px;
+
+.body .desc input[type="text"]{
   height: 200px;
-  width: 200px;
+  display: inline-block;
+  vertical-align: top;
 }
-.trending .card li{font-size: 20px; padding-bottom: 4px; color: #544}
 
-.max-lines {
-  display: block;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  overflow: hidden;
-  max-height: 80px;
-  line-height: 1.8em;
-  padding-right: 10px;
-}
-footer{
-  background-color: #AF4C50;
-  color: #fee;
-  text-align: center;
-  height: 3em;
-  font-weight: bold;
+.body .center{
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
-footer p{
-  padding-top: 1em;
-}
-@media (max-width: 966px){
-  .header-grid div{
-    font-size: 22px;
-  }
-  .search input[type=text]{
-    max-width: 50%;
-  }
+.body .center input[type="text"]{
+  width: 600px;
 }

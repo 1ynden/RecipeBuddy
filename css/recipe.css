@@ -5,6 +5,7 @@ body{
   font-size: 16px;
   font-family: 'Nunito', serif;
   background-color: #eee;
+  line-height: normal;
 }
 
 nav a:link, nav a:visited {
@@ -49,6 +50,9 @@ nav a.active {
 
 .login{
   grid-area: login;
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
 }
 
 .search {
@@ -90,68 +94,49 @@ nav a.active {
 .search button:hover {
   background: #ccc;
 }
-
-.trending{
-  margin-top: -24px;
+.body{
   max-width: 85%;
   margin-left: auto;
   padding-left: 40px;
   margin-right: auto;
   padding-right: 40px;
   background-color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-column-gap: 40px;
+  grid-row-gap: 20px;
 }
-
-.trending h1{
-  font-weight: bolder;
-  font-size: 36px;
-  padding-bottom: 12px;
+.body p{
+  margin: auto;
+  margin-top: 30px;
 }
-
-.trending .card{
-  border: 4px solid #ddd;
-  border-radius: 10px;
+.body ul{
+  margin: auto;
+  margin-left: 0px;
+}
+.box{
   display: flex;
-  background-color: #fff;
-  max-height: 300px;
+  flex-direction: column;
 }
-.trending .card:hover{
-  background-color: #ffeef5;
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.trending .card img{
-  border: 4px solid #ccc;
-  border-radius: 7px;
-  margin: 20px;
-  height: 200px;
+.body button{
+  height: 40px;
   width: 200px;
+  margin-bottom: 20px;
 }
-.trending .card li{font-size: 20px; padding-bottom: 4px; color: #544}
-
-.max-lines {
-  display: block;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  overflow: hidden;
-  max-height: 80px;
-  line-height: 1.8em;
-  padding-right: 10px;
+.backdrop{
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 2.5;
 }
-footer{
+.backdrop ul{
   background-color: #AF4C50;
-  color: #fee;
-  text-align: center;
-  height: 3em;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-}
-footer p{
-  padding-top: 1em;
-}
-@media (max-width: 966px){
-  .header-grid div{
-    font-size: 22px;
-  }
-  .search input[type=text]{
-    max-width: 50%;
-  }
+  color: #f1f1f1;
+  padding-left: 10px;
+  margin-right: 20px;
+  border-radius: 10px;
 }
