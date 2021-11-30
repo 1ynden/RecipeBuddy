@@ -12,7 +12,7 @@
     <link href="css/normalize.css" rel="stylesheet">
     <link rel="icon" href="https://static.thenounproject.com/png/369577-200.png">
   </head>
-  <body>
+  <body onload="checkLogin()">
     <main id="page">
       <nav>
         <div class="header-grid">
@@ -30,7 +30,7 @@
             <a href="#">Recipes</a>
             <a href="#">Pantry</a>
             <a href="#">Settings</a>
-            <a href="index.html">Logout</a>
+            <a onClick="logout">Logout</a>
           </div>
         </div>
       </nav>
@@ -187,5 +187,18 @@
       </div>
     </main>
     <footer><p>DEMO by Team Anonymous</p></footer>
+    <script defer>
+      function checkLogin(){
+        if (sessionStorage.getItem('status') === null){
+          window.location.replace("index.html");
+        }
+      }
+      function logout(){
+        jQuery(window).load(function() {
+          sessionStorage.setItem('status',null);
+          window.location.replace("index.html");
+        });
+      }
+    </script>
   </body>
 </html>

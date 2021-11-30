@@ -63,7 +63,7 @@
   </style>
 </head>
 <body>
-    <form>
+    <form action="checkLogin.php" method="post">
         <div class="container">
             <h1> Welcome Back </h1>
             <label>Username: </label>
@@ -75,5 +75,13 @@
             <a href="#">Forgot password?</a>
         </div>
     </form>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script defer>
+      function loginSuccess(){
+        jQuery(window).load(function() {
+          sessionStorage.setItem('status','loggedIn')
+        });
+      }
+    </script>
 </body>
 </html>
