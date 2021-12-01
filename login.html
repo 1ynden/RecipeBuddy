@@ -70,17 +70,15 @@
             <input type="text" placeholder="Enter Username" name="username" required>
             <label>Password: </label>
             <input type="password" placeholder="Enter Password" name="password" required>
-            <button type="submit">Login</button>
+            <button type="submit" onClick="login()">Login</button>
             <a href="register.html"><button type="button">Register</button></a>
             <a href="#">Forgot password?</a>
         </div>
     </form>
-    <script src="jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
     <script defer>
-      function loginSuccess(){
-        jQuery(window).load(function() {
-          sessionStorage.setItem('status','loggedIn')
-        });
+      function login(){
+          sessionStorage.setItem('status','loggedIn');
       }
     </script>
 </body>
