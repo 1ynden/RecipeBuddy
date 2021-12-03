@@ -12,7 +12,7 @@
     <link href="css/normalize.css" rel="stylesheet">
     <link rel="icon" href="https://static.thenounproject.com/png/369577-200.png">
   </head>
-  <body>
+  <body onload="checkLogin()">
     <main id="page">
       <nav>
         <div class="header-grid">
@@ -108,5 +108,12 @@
       </div>
     </main>
     <footer><p>DEMO by Team Anonymous</p></footer>
+    <script>
+        function checkLogin(){
+            if (sessionStorage.getItem('status') === 'loggedIn'){
+              window.location.replace("home.html");
+            }
+        }
+    </script>
   </body>
 </html>

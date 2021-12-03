@@ -18,7 +18,7 @@
         <div class="header-grid">
           <div class="logo"> RecipeBuddy</div>
 
-          <!--- Search Bar --->
+          <!-- Search Bar -->
           <div class="search">
             <form action="/action_page.php">
               <input type="text" placeholder="Search.." name="search" size="60">
@@ -30,7 +30,7 @@
             <a href="#">Recipes</a>
             <a href="#">Pantry</a>
             <a href="#">Settings</a>
-            <a onClick="logout">Logout</a>
+            <a href="#" onClick='logout()'>Logout</a>
           </div>
         </div>
       </nav>
@@ -187,18 +187,17 @@
       </div>
     </main>
     <footer><p>DEMO by Team Anonymous</p></footer>
-    <script defer>
-      function checkLogin(){
-        if (sessionStorage.getItem('status') === null){
+    <script>
+        function checkLogin(){
+            if (sessionStorage.getItem('status') != 'loggedIn'){
+              window.location.replace("index.html");
+            }
+        }
+        function logout(){
+          sessionStorage.setItem('status', 'loggedOut');
+          sessionStorage.setItem('myID', -1)
           window.location.replace("index.html");
         }
-      }
-      function logout(){
-        jQuery(window).load(function() {
-          sessionStorage.setItem('status',null);
-          window.location.replace("index.html");
-        });
-      }
     </script>
   </body>
 </html>

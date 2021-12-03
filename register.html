@@ -62,19 +62,74 @@
     }
   </style>
 </head>
-<body>
-    <form action="signup.php" method="post">
+<body onload="checkLogin()">
+    <form action="signup.php" method="post" id="mainform">
         <div class="container">
             <h1> Welcome to RecipeBuddy</h1>
             <label>Username: </label>
-            <input type="text" placeholder="Enter Username" name="username" required>
+            <input type="text" placeholder="Enter Username" name="username" id="uname" required>
             <label>Password: </label>
-            <input type="password" placeholder="Enter Password" name="password" required>
+            <input type="password" placeholder="Enter Password" name="password" id="pass1" required>
             <label>Confirm Password: </label>
-            <input type="password" placeholder="Enter Password" name="password" required>
-            <button type="button submit">Register</button>
+            <input type="password" placeholder="Enter Password" name="password1" id="pass2" required>
+            <button type="button" id="submit">Register</button>
             <a href="login.html">I already have an account.</a>
         </div>
     </form>
+    
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script defer>
+      $(document).ready(function(){
+        if(sessionStorage.getItem('status' != null)){
+            window.location.replace("home.html");
+        }
+        var loginSubmit = function(){
+            var user = $("#uname").val();
+            var pw1 = $("#pass1").val();
+            var pw2 = $("#pass2").val();
+            
+            if(user == '' || pw1 == '' || pw2 == ''){
+                $('input[type="text"],input[type="password"]').css("border","2px solid red");
+                $('input[type="text"],input[type="password"]').css("box-shadow","0 0 3px red");
+                alert("All fields are required.");
+            }else if(pw1 != pw2){
+                $('input[type="password"]').css("border","2px solid red");
+                $('input[type="password"]').css("box-shadow","0 0 3px red");
+                alert("Passwords do not match.");
+            }else{
+                $.post("signup.php",{username:user, password:pw1},
+                function(data) {
+                  if(data==-1){
+                    $('input[type="text"],input[type="password"]').css("border","2px solid red");
+                    $('input[type="text"],input[type="password"]').css("box-shadow","0 0 3px red");
+                    alert("Account by this name already exists.");
+                  } else if(data==-2){
+                      alert("Critical database failure.");
+                  } else{
+                    sessionStorage.setItem('status','loggedIn');
+                    sessionStorage.setItem('myID', data);
+                    window.location.replace("home.html");
+                  }
+                  console.log(data);
+                });
+                
+            }
+        }
+        $("#submit").click(loginSubmit);
+        $('#mainform').keypress(function(event) {
+            if (event.keyCode == 13 || event.which == 13) {
+                loginSubmit();
+            }
+        });
+    });
+    </script>
+    <script>
+        function checkLogin(){
+            if (sessionStorage.getItem('status') === 'loggedIn'){
+              window.location.replace("home.html");
+            }
+        }
+    </script>
+    
 </body>
 </html>
