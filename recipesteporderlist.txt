@@ -1,0 +1,12 @@
+show recipe array order 
+name
+description 
+tags 
+time 
+servings 
+difficulty 
+picture blob
+times cooked 
+rating 
+step number
+step instructions 

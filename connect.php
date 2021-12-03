@@ -4,7 +4,7 @@
 $hostName = "localhost";
 $username_db = "root";
 $password_db = "";
-$dbName = "recipebuddy";
+$dbName = "recigprf_recipebuddy";
 
 //connect to the database
 $connect = new mysqli($hostName, $username_db, $password_db, $dbName);

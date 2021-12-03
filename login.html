@@ -67,13 +67,46 @@
         <div class="container">
             <h1> Welcome Back </h1>
             <label>Username: </label>
-            <input type="text" placeholder="Enter Username" name="username" required>
+            <input type="text" placeholder="Enter Username" name="username" id="uname" required>
             <label>Password: </label>
-            <input type="password" placeholder="Enter Password" name="password" required>
-            <button type="submit">Login</button>
+            <input type="password" placeholder="Enter Password" name="password" id="pass" required>
+            <button type="button" id="submit">Login</button>
             <a href="register.html"><button type="button">Register</button></a>
             <a href="#">Forgot password?</a>
         </div>
     </form>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script defer>
+      $(document).ready(function(){
+        $("#submit").click(function(){
+          var user = $("#uname").val();
+          var pass = $("#pass").val();
+
+          if(user == '' || pass == ''){
+            $('input[type="text"],input[type="password"]').css("border","2px solid red");
+            $('input[type="text"],input[type="password"]').css("box-shadow","0 0 3px red");
+            alert("All fields are required.");
+          }else{
+            $.post("checkLogin.php",
+            {
+              username:user, 
+              password:pass
+            },
+            function(data) {
+              if(data==-1){
+                $('input[type="text"],input[type="password"]').css("border","2px solid red");
+                $('input[type="text"],input[type="password"]').css("box-shadow","0 0 3px red");
+                alert("Incorrect username or password.");
+              } else{
+                sessionStorage.setItem('status','loggedIn');
+                sessionStorage.setItem('myID', data);
+                window.location.replace("home.html");
+              }
+            });
+            console.log("bruh");
+          }
+        });
+      });
+    </script>
 </body>
 </html>

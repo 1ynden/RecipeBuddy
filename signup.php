@@ -11,9 +11,9 @@ if(isset($_POST["username"], $_POST["password"]))
 		}
 
 		$hostName = "localhost";
-		$username_db = "root";
-		$password_db = "";
-		$dbName = "recipebuddy";
+		$username_db = "recigprf_root";
+		$password_db = "recipebuddyrootlogin";
+		$dbName = "recigprf_recipebuddy";
 
 		//connect to the database
 		$con = new mysqli($hostName, $username_db, $password_db, $dbName);
@@ -27,11 +27,11 @@ if(isset($_POST["username"], $_POST["password"]))
 	    $result = mysqli_query($con, $query);
         if($result)
         {
-			header("Location: login.html");
+			echo $result[0];
 		}
 		else
 		{
-			header("Location: register.html");
+			echo -1;
 		}
 
       
