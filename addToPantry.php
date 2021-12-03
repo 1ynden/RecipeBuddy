@@ -3,6 +3,9 @@
     //$user_ID = $_POST["user_ID"];
 	//$item = $_POST["item"];
 	//$which_place = $_POST["place"];
+	$user_ID = 19;
+	$item = "Spoon";
+	$which_place = "appliances";
 	
 	$hostName = "localhost";
 	$username_db = "root";
@@ -19,16 +22,18 @@
 	
 	if($which_place == "appliances")
 	{
-		$query = "Select appliance_ID From `ingredients` WHERE $item LIKE ingredient_name";
+		//get the id of appliance
+		$query = "SELECT * FROM `appliances` WHERE `appliance_name` LIKE '$item'";
 		$result = mysqli_query($con, $query);
 		$row = mysqli_fetch_row($result);
 		$appliance_to_add_ID = $row[0];
 		
-		$query = "INSERT INTO `user_appliances` (`user_ID, `appliance_ID`) VALUES ('$user_ID', '$appliance_to_add_ID')";
+		//insert said appliance
+		$query = "INSERT INTO `user_appliances` (`user_ID`, `appliance_ID`) VALUES ('$user_ID', '$appliance_to_add_ID')";
 		$result = mysqli_query($con, $query);
 		if($result)
         {
-			header("Location: pantry.html");
+			echo "success appliance added";
 		}
 		else
 		{
@@ -37,18 +42,21 @@
 		
 	}
 	
-	if($which_place = "ingredients")
+	if($which_place == "ingredients")
 	{
-		$query = "Select ingredient_ID From `ingredients` WHERE $item LIKE ingredient_name";
+		//get id of ingredient
+		$query = "SELECT * FROM `ingredients` WHERE `ingredient_name` LIKE '$item'";
 		$result = mysqli_query($con, $query);
 		$row = mysqli_fetch_row($result);
+		print_r($row[0]);
 		$ingredient_to_add_ID = $row[0];
 		
-		$query = "INSERT INTO `user_ingredients` (`user_ID`, `ingredient_ID`) VALUES ('$user_ID', '$ingredient_to_add_ID)'";
+		//insert ingredient into table
+		$query = "INSERT INTO `user_ingredients` (`user_ID`, `ingredient_ID`) VALUES ('$user_ID', '$ingredient_to_add_ID')";
 		$result = mysqli_query($con, $query);
 		if($result)
         {
-			header("Location: pantry.html");
+			echo "success";
 		}
 		else
 		{
