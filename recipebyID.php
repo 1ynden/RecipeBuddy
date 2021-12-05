@@ -27,6 +27,7 @@ if(isset($_POST["searchID"]))
     if(empty($row_search)){
 			echo "No Recipes found, please try again";
 		} else{
+      echo "bruhh";
 			array_push($output, $row_search[2]); //name
 			array_push($output, $row_search[3]); //description
 			array_push($output, $row_search[4]); //tags
