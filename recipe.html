@@ -84,7 +84,7 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script defer>
       $(document).ready(function(){
-        var pgID = request.getParameter("pgid");
+        let pgID = window.location.search.substring(1);
         $.post("checkLogin.php",
         {
           searchID:pgID,
