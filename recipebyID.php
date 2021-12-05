@@ -21,7 +21,7 @@ if(isset($_POST["searchID"]))
 		}
 
 		//get the recipe info
-    $query = "SELECT * FROM `recipe` WHERE `recipe_ID` = '$searchID'";
+    $query = "SELECT * FROM `recipe` WHERE `recipe_ID` = '$SID'";
 	  $result = mysqli_query($con, $query);
 		$row_search = mysqli_fetch_row($result);
     if(empty($row_search)){
