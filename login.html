@@ -89,7 +89,7 @@
           }else{
             $.post("checkLogin.php",
             {
-              username:user, 
+              username:user,
               password:pass
             },
             function(data) {
@@ -103,7 +103,6 @@
                 window.location.replace("home.html");
               }
             });
-            console.log("bruh");
           }
         });
       });

@@ -35,8 +35,8 @@
         </div>
       </nav>
       <div class="body">
-        <h1>Green Bean Casserole</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <h1 id="name">Green Bean Casserole</h1>
+        <p id="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Vestibulum non justo ultrices, pellentesque metus id, eleifend
           ligula. In vitae libero diam. Mauris ut consequat ante, eu
           consequat erat.</p>
@@ -50,7 +50,7 @@
           </ul>
         </div>
 
-        <img src="img\casserole.jpg" alt="Green Bean Casserole"/>
+        <img src="img\casserole.jpg" alt="Green Bean Casserole" id="img"/>
         <div class="box">
           <h1> Step 1:</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -65,11 +65,13 @@
         </div>
         <div class="backdrop">
           <ul>
-            <li> Times Cooked: 2</li>
+            <li> Time Needed: <span id="time">0</span></li>
+            <li> Servings: <span id="serv">0</span></li>
+            <li> Times Cooked: <span id="cook">0</span></li>
             <li> Last Cooked: 11/9/2021</li>
             <li> Rating: 4.7</li>
-            <li> Difficulty: 3</li>
-            <li> Tags: #casserole, #thanksgiving</li>
+            <li> Difficulty: <span id="diff">0</span></li>
+            <li> Tags: <span id="tags">#casserole, #thanksgiving</span></li>
             <li> Missing items: Cream of Mushroom Soup</li>
           </ul>
         </div>
@@ -79,5 +81,25 @@
         </div>
       </div>
     </main>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script defer>
+      $(document).ready(function(){
+        var pgID = request.getParameter("pgid");
+        $.post("checkLogin.php",
+        {
+          searchID:pgID,
+        },
+        function(data) {
+          document.getElementById('name').innerHTML = data[0];
+          document.getElementById('desc').innerHTML = data[1];
+          document.getElementById('tags').innerHTML = data[2];
+          document.getElementById('time').innerHTML = data[3];
+          document.getElementById('serv').innerHTML = data[4];
+          document.getElementById('diff').innerHTML = data[5];
+          //document.getElementById('img').innerHTML = data[6]; blob stuffs
+          document.getElementById('cook').innerHTML = data[7];
+        });
+      });
+    </script>
   </body>
 </html>
