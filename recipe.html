@@ -84,8 +84,9 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script defer>
       $(document).ready(function(){
-        let pgID = window.location.search.substring(1);
-        $.post("checkLogin.php",
+        let pgID = window.location.search.substring(1).substring(5);
+        console.log(pgID);
+        $.post("recipebyID.php",
         {
           searchID:pgID,
         },
