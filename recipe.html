@@ -50,7 +50,7 @@
           </ul>
         </div>
 
-        <img src="img\casserole.jpg" alt="Green Bean Casserole" id="imag"/>
+        <span id="imag"><img src="img\casserole.jpg" alt="Green Bean Casserole"/></span>
         <div class="box">
           <h1> Step 1:</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -95,29 +95,13 @@
             document.getElementById('name').innerHTML = data.split("||")[0];
             document.getElementById('desc').innerHTML = data.split("||")[1];
             document.getElementById('tags').innerHTML = data.split("||")[2];
-            document.getElementById('time').innerHTML = data.split("||")[3];
+            document.getElementById('time').innerHTML = data.split("||")[3].concat(' ', "Minutes");
             document.getElementById('serv').innerHTML = data.split("||")[4];
             document.getElementById('diff').innerHTML = data.split("||")[5];
-            //document.getElementById('imag').innerHTML = data.split("||")[6]; blob stuffs
-            document.getElementById('cook').innerHTML = data.split("||")[6];
+            document.getElementById('imag').innerHTML = data.split("||")[6];
+            document.getElementById('cook').innerHTML = data.split("||")[7];
           }
         });
-
-
-        /*$.post("recipebyID.php",
-        {
-          searchID:pgID,
-        },
-        function(data) {
-          document.getElementById('name').innerHTML = data.name;
-          document.getElementById('desc').innerHTML = data.desc;
-          document.getElementById('tags').innerHTML = data.tags;
-          document.getElementById('time').innerHTML = data.time;
-          document.getElementById('serv').innerHTML = data.serv;
-          document.getElementById('diff').innerHTML = data.diff;
-          //document.getElementById('imag').innerHTML = data.imag; blob stuffs
-          document.getElementById('cook').innerHTML = data.cook;
-        });*/
       });
     </script>
   </body>
