@@ -33,7 +33,7 @@ if(isset($_POST["searchID"]))
 			$output.=$row_search[5]."||"; //time needed
 			$output.=$row_search[7]."||"; //servings
 			$output.=$row_search[8]."||"; //difficulty
-			$output.=$row_search[9]."||"; //picture
+			//$output.=$row_search[9]."||"; //picture
 			$output.=$row_search[10]."||"; //times cooked
       echo $output;
     }
