@@ -33,7 +33,7 @@ if(isset($_POST["searchID"]))
 			$output.=$row_search[5]."||"; //time needed
 			$output.=$row_search[7]."||"; //servings
 			$output.=$row_search[8]."||"; //difficulty
-			$output.='<img src="data:image/jpeg;base64,'.base64_encode($row_search[9])'"/>'."||"; //BLOB image
+			$output.='<img src="data:image/jpeg;base64,'.base64_encode($row_search[9]).'"/>||'; //BLOB image
 			$output.=$row_search[10]."||"; //times cooked
       echo $output;exit;
     }
