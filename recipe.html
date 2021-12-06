@@ -50,7 +50,7 @@
           </ul>
         </div>
 
-        <img src="img\casserole.jpg" alt="Green Bean Casserole" id="img"/>
+        <img src="img\casserole.jpg" alt="Green Bean Casserole" id="imag"/>
         <div class="box">
           <h1> Step 1:</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -91,14 +91,14 @@
           searchID:pgID,
         },
         function(data) {
-          document.getElementById('name').innerHTML = data[0];
-          document.getElementById('desc').innerHTML = data[1];
-          document.getElementById('tags').innerHTML = data[2];
-          document.getElementById('time').innerHTML = data[3];
-          document.getElementById('serv').innerHTML = data[4];
-          document.getElementById('diff').innerHTML = data[5];
-          //document.getElementById('img').innerHTML = data[6]; blob stuffs
-          document.getElementById('cook').innerHTML = data[7];
+          document.getElementById('name').innerHTML = data.name;
+          document.getElementById('desc').innerHTML = data.desc;
+          document.getElementById('tags').innerHTML = data.tags;
+          document.getElementById('time').innerHTML = data.time;
+          document.getElementById('serv').innerHTML = data.serv;
+          document.getElementById('diff').innerHTML = data.diff;
+          //document.getElementById('imag').innerHTML = data.imag; blob stuffs
+          document.getElementById('cook').innerHTML = data.cook;
         });
       });
     </script>
