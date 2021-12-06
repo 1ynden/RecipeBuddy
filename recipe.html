@@ -93,14 +93,14 @@
           data: {searchID:pgID},
           dataType: "json",
           success:function(data){
-            document.getElementById('name').innerHTML = data.name;
-            document.getElementById('desc').innerHTML = data.desc;
-            document.getElementById('tags').innerHTML = data.tags;
-            document.getElementById('time').innerHTML = data.time;
-            document.getElementById('serv').innerHTML = data.serv;
-            document.getElementById('diff').innerHTML = data.diff;
-            //document.getElementById('imag').innerHTML = data.imag; blob stuffs
-            document.getElementById('cook').innerHTML = data.cook;
+            document.getElementById('name').innerHTML = data.split("||")[0];
+            document.getElementById('desc').innerHTML = data.split("||")[1];
+            document.getElementById('tags').innerHTML = data.split("||")[2];
+            document.getElementById('time').innerHTML = data.split("||")[3];
+            document.getElementById('serv').innerHTML = data.split("||")[4];
+            document.getElementById('diff').innerHTML = data.split("||")[5];
+            //document.getElementById('imag').innerHTML = data.split("||")[6]; blob stuffs
+            document.getElementById('cook').innerHTML = data.split("||")[7];
           }
         });
 

@@ -10,7 +10,7 @@ if(isset($_POST["searchID"]))
 		$password_db = "recipebuddyrootlogin";
 		$dbName = "recigprf_recipebuddy";
 
-		$output = array();
+		$output = '';
 
 		//connect to the database
 		$con = new mysqli($hostName, $username_db, $password_db, $dbName);
@@ -27,15 +27,15 @@ if(isset($_POST["searchID"]))
     if(empty($row_search)){
 			echo "No Recipes found, please try again";
 		} else{
-			$output['name'] = $row_search[2]; //name
-			$output['desc'] = $row_search[3]; //description
-			$output['tags'] = $row_search[4]; //tags
-			$output['time'] = $row_search[5]; //time needed
-			$output['serv'] = $row_search[7]; //servings
-			$output['diff'] = $row_search[8]; //difficulty
-			$output['imag'] = $row_search[9]; //picture
-			$output['cook'] = $row_search[10]; //times cooked
-      print json_encode($output);
+			$output.=$row_search[2]."||"; //name
+			$output.=$row_search[3]."||"; //description
+			$output.=$row_search[4]."||"; //tags
+			$output.=$row_search[5]."||"; //time needed
+			$output.=$row_search[7]."||"; //servings
+			$output.=$row_search[8]."||"; //difficulty
+			$output.=$row_search[9]."||"; //picture
+			$output.=$row_search[10]."||"; //times cooked
+      echo $output;
     }
 
 	}
