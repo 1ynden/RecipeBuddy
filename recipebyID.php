@@ -35,7 +35,7 @@ if(isset($_POST["searchID"]))
 			$output.=$row_search[8]."||"; //difficulty
 			//$output.=$row_search[9]."||"; //picture
 			$output.=$row_search[10]."||"; //times cooked
-      echo $output;
+      echo $output;exit;
     }
 
 	}
