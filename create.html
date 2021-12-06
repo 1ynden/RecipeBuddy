@@ -34,7 +34,7 @@
           </div>
         </div>
       </nav>
-      <form>
+      <form action="createRecipe.php" method="post">
         <div class="body">
           <h1> Create a Recipe</h1><div></div><div></div>
           <div class="item">
@@ -54,7 +54,7 @@
             </div>
             <div class="item">
               <label>Appliances: </label>
-              <input type="text" placeholder="Enter a list of appliances" name="apps">
+              <input type="text" placeholder="Enter a list of appliances" name="apps" required>
             </div>
           </div>
           <br>
@@ -63,11 +63,32 @@
             <input type="text" placeholder="Enter Instructions" name="instr" required>
           </div>
           <br>
-          <button type="submit">Login</button>
-          <a href="register.html"><button type="button">Register</button></a>
-          <a href="#">Forgot password?</a>
+          <button type="button submit">submit</button>
         </div>
       </form>
+      <!--<script src="js/jquery-3.6.0.min.js"></script>
+      <script defer>
+        $(document).ready(function(){
+          $("#submit").click(function(){
+            var recipeName = $("#name").val();
+            var description = $("#desc").val();
+            var ingrediants = $("#ings").val();
+            var appliances = $("#apps").val();
+            var instructions = $("#instr").val();
+            $.post("createRecipe.php",
+              {
+                name:recipeName,
+                desc:description,
+                ings:ingrediants,
+                apps:appliances,
+                instr:instructions
+              },
+              function(data){ 
+                window.location.replace("home.html");
+              });
+          });
+        });
+      </script>--->
     </main>    
   </body>
 </html>
