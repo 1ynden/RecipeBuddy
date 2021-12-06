@@ -27,15 +27,14 @@ if(isset($_POST["searchID"]))
     if(empty($row_search)){
 			echo "No Recipes found, please try again";
 		} else{
-			array_push($output, $row_search[2]); //name
-			array_push($output, $row_search[3]); //description
-			array_push($output, $row_search[4]); //tags
-			array_push($output, $row_search[5]); //time needed
-			array_push($output, $row_search[7]); //servings
-			array_push($output, $row_search[8]); //difficulty
-			array_push($output, $row_search[9]); //picture
-			array_push($output, $row_search[10]); //times cooked
-      return $output;
+			echo $row_search[2]; //name
+			echo $row_search[3]; //description
+			echo $row_search[4]; //tags
+			echo $row_search[5]; //time needed
+			echo $row_search[7]; //servings
+			echo $row_search[8]; //difficulty
+			echo $row_search[9]; //picture
+			echo $row_search[10]; //times cooked
     }
 
 	}
