@@ -91,7 +91,6 @@
           url: 'recipebyID.php',
           type: 'POST',
           data: {searchID:pgID},
-          dataType: "json",
           success:function(data){
             document.getElementById('name').innerHTML = data.split("||")[0];
             document.getElementById('desc').innerHTML = data.split("||")[1];
