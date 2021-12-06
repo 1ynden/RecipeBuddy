@@ -109,12 +109,15 @@ nav a.active {
 }
 .body input[type="text"]{
   height: 40px;
+  vertical-align: top;
+  word-break: break-word;
 }
 
 .body .desc input[type="text"]{
   height: 200px;
   display: inline-block;
   vertical-align: top;
+  word-break: break-word;
 }
 
 .body .center{
