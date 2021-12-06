@@ -86,7 +86,26 @@
       $(document).ready(function(){
         let pgID = window.location.search.substring(1).substring(5);
         console.log(pgID);
-        $.post("recipebyID.php",
+
+        $.ajax ({
+          url: 'recipebyID.php',
+          type: 'POST',
+          data: {searchID:pgID},
+          dataType: "json",
+          success:function(data){
+            document.getElementById('name').innerHTML = data.name;
+            document.getElementById('desc').innerHTML = data.desc;
+            document.getElementById('tags').innerHTML = data.tags;
+            document.getElementById('time').innerHTML = data.time;
+            document.getElementById('serv').innerHTML = data.serv;
+            document.getElementById('diff').innerHTML = data.diff;
+            //document.getElementById('imag').innerHTML = data.imag; blob stuffs
+            document.getElementById('cook').innerHTML = data.cook;
+          }
+        });
+
+
+        /*$.post("recipebyID.php",
         {
           searchID:pgID,
         },
@@ -99,7 +118,7 @@
           document.getElementById('diff').innerHTML = data.diff;
           //document.getElementById('imag').innerHTML = data.imag; blob stuffs
           document.getElementById('cook').innerHTML = data.cook;
-        });
+        });*/
       });
     </script>
   </body>
