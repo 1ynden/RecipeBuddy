@@ -35,6 +35,8 @@ if(isset($_POST["search"]))
 			array_push($search_results, $row_search[8]); //difficulty
 			array_push($search_results, $row_search[9]); //picture
 			array_push($search_results, $row_search[10]); //times cooked
+			array_push($search_results, $row_search[11]);//recipe ingredinents
+			array_push($search_results, $row_search[12]); //recipe appliances
 			$user_rating = array();
 			$query = "SELECT user_rating From recipe_ratings WHERE recipe_ID = $row_search[1]";
 			$result = mysqli_query($con, $query);
@@ -42,8 +44,15 @@ if(isset($_POST["search"]))
 			{
 				array_push($user_rating, $row[0]);
 			}
-			$average = array_sum($user_rating) / count($user_rating);
-			array_push($search_results, $average); //recipe rating
+			if(count($user_rating) == 0)
+			{
+				array_push($search_results, 0);
+			}
+			else
+			{
+				$average = array_sum($user_rating) / count($user_rating);
+				array_push($search_results, $average); //recipe rating
+			}
 		}
 		
 		//get the step instructions
@@ -53,28 +62,32 @@ if(isset($_POST["search"]))
 		$row = mysqli_fetch_row($result);
 		if(empty($row))
 		{
-			echo "Your recipe is done";
+			echo "Your  is done";
 		} 
 		else
 		{
 			array_push($search_results, $row[1]);
 			array_push($search_results, $row[2]);
 		}
-		//print_r($search_results);
+		print_r($search_results);
+		
+		//$query = "UPDATE `recipe` SET times_cooked = times_cooked + 1 WHERE user_id = '10'";
+		//$result = mysqli_query($con, $query);
 		
 		//get the step appliances
+		/*
 		$query = "Select ingredients.ingredient_name From `recipe_steps` Inner Join `ingredients` On 'recipe_step.ingredient_ID' = 'ingredients.ingredient_ID'";
 		$result = mysqli_query($con, $query);
 		$row = mysqli_fetch_row($result);
 		if(empty($row))
 		{
-			echo "Your recipe is done";
+			echo "Your recipe done";
 		} 
 		else
 		{
 			print_r($row[0]);
 		}
-		
+		*/
 		
 	}
 ?>
