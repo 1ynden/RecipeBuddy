@@ -16,7 +16,7 @@
     <main id="page">
       <nav>
         <div class="header-grid">
-          <div class="logo"> <a href="home.html">RecipeBuddy</a></div>
+          <div class="logo"> RecipeBuddy</div>
 
           <!--- Search Bar --->
           <div class="search">
@@ -39,56 +39,80 @@
           <h1> Create a Recipe</h1><div></div><div></div>
           <div class="item">
             <label>Recipe Name: </label>
-            <input type="text" placeholder="Enter a Name" name="name" required>
+            <input type="text" placeholder="Enter a Name" name="name" id = "name" required>
           </div>
           <br>
           <div class="item desc">
             <label>Descrition: </label>
-            <input type="text" placeholder="Enter a Description" name="desc" required>
+            <input type="text" placeholder="Enter a Description" name="desc" id="desc" required>
           </div>
           <br>
           <div class="center">
             <div class="item">
               <label>Ingredients: </label>
-              <input type="text" placeholder="Enter a list of ingredients" name="ingrs" required>
+              <input type="text" placeholder="Enter a list of ingredients" name="ingrs" id="ingrs" required>
             </div>
             <div class="item">
               <label>Appliances: </label>
-              <input type="text" placeholder="Enter a list of appliances" name="apps" required>
+              <input type="text" placeholder="Enter a list of appliances" name="apps" id="apps" required>
             </div>
           </div>
           <br>
           <div class="item desc">
             <label>Instructions: </label>
-            <input type="text" placeholder="Enter Instructions" name="instr" required>
+            <input type="text" placeholder="Enter Instructions" name="instr" id="instr" required>
           </div>
           <br>
-          <button type="button submit">submit</button>
+          <div class="category">
+            <label>category: </label>
+            <br>
+            <input type="text" placeholder="categorys" name="cat" id="cat" required>
+          </div>
+          <br>
+          <div class="cook time">
+            <label>cook time: </label>
+            <br>
+            <input type="text" placeholder="minutes" name="time" id="time" required>
+          </div>
+          <br>
+          <div class="servings">
+            <label>servings: </label>
+            <br>
+            <input type="text" placeholder="servings" name="serv" id="serv" required>
+          </div>
+          <br>
+          <div class="private">
+            <label>private: </label>
+            <input type="checkbox" name="priv" id="priv" required>
+          </div>
+          <br>
+          <button type="button" id="submit">submit</button>
+          <br>
         </div>
       </form>
-      <!--<script src="js/jquery-3.6.0.min.js"></script>
+      <script src="js/jquery-3.6.0.min.js"></script>
       <script defer>
         $(document).ready(function(){
-          $("#submit").click(function(){
-            var recipeName = $("#name").val();
-            var description = $("#desc").val();
-            var ingrediants = $("#ings").val();
-            var appliances = $("#apps").val();
-            var instructions = $("#instr").val();
+          var user_id = sessionStorage.getItem('myID');
+          console.log(user_id);
+          $('#submit').click(function(){
             $.post("createRecipe.php",
-              {
-                name:recipeName,
-                desc:description,
-                ings:ingrediants,
-                apps:appliances,
-                instr:instructions
-              },
-              function(data){
-                window.location.replace("home.html");
-              });
+            {
+              user:user_id,
+              name:$("#name").val(),
+              desc:$("#desc").val(),
+              ingrs:$("#ingrs").val(),
+              apps:$("#apps").val(),
+              instr:$("#instr").val(),
+              cat:$("#cat").val(),
+              time:$("#time").val(),
+              serv:$("#serv").val(),
+              priv:$("#priv").val()
+            },
+            function(data) { window.location.replace("home.html"); });
           });
-        });
-      </script>--->
-    </main>
+      });
+      </script>
+    </main>    
   </body>
 </html>
