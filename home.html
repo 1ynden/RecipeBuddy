@@ -27,7 +27,7 @@
           </div>
 
           <div class="login">
-            <a href="#">Recipes</a>
+            <a href="#" onclick='createRecipe()'>Recipes</a>
             <a href="#">Pantry</a>
             <a href="#">Settings</a>
             <a href="#" onClick='logout()'>Logout</a>
@@ -197,6 +197,9 @@
           sessionStorage.setItem('status', 'loggedOut');
           sessionStorage.setItem('myID', -1)
           window.location.replace("index.html");
+        }
+        function createRecipe(){
+          window.location.replace("create.html")
         }
     </script>
   </body>
