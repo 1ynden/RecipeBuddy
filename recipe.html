@@ -101,7 +101,7 @@
             }
 
             var apps = data.split("||")[9];
-            if(!$.trim(apps)){//nothing}
+            if(!$.trim(apps)){}
             else{
               for (let i = 0; i < apps.length; i++){
                 document.getElementById('reqs').innerHTML += ("<li>" + apps.split(",")[i] + "</li>");
