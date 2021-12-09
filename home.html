@@ -203,7 +203,8 @@
           window.location.replace("create.html")
         }
         var searchSubmit = function(){
-            window.location.replace("search.html?q=" + $("#query").val());
+          console.log("search.html?q=" + $("#query").val());
+          window.location.replace("search.html?q=" + $("#query").val());
         }
 
         $("#submit").click(searchSubmit);
