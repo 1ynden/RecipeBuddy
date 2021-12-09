@@ -79,7 +79,9 @@
                 }
                 else{resultsContainer.innerHTML = "<div class='trending'>";}
                 for( var i = 0; i < outputPosts.length; i++ ){
-                    resultsContainer.innerHTML += "<a href='recipe.html?pgid=" + outputPosts[i].recipe_ID + "'><div class='card' id='result_" + i + "'>" + outputPosts[i].image + "<ul><li><h1>" + outputPosts[i].recipe_Name + "</h1></li><li>" + outputPosts[i].score.substring(0,3) + " Stars</li><li>"+ outputPosts[i].time + " Minutes</li><li class='max-lines'> " + outputPosts[i].recipe_Description + "</li></ul></div></a>";
+                  if(outputPosts[i].score != null){var score = outputPosts[i].score.substring(0,3);}
+                  else{var score = "No ratings yet."}
+                  resultsContainer.innerHTML += "<a href='recipe.html?pgid=" + outputPosts[i].recipe_ID + "'><div class='card' id='result_" + i + "'>" + outputPosts[i].image + "<ul><li><h1>" + outputPosts[i].recipe_Name + "</h1></li><li>" + score + " Stars</li><li>"+ outputPosts[i].time + " Minutes</li><li class='max-lines'> " + outputPosts[i].recipe_Description + "</li></ul></div></a>";
                 }
                 resultsContainer.innerHTML += "</div>";
             }

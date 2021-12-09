@@ -30,7 +30,7 @@ if(isset($_POST["user"], $_POST["name"], $_POST["desc"], $_POST["ingrs"], $_POST
 			die("Connection failed: " .mysqli_connect_error());
 		}
 
-        $query = "INSERT INTO `recipe` (`user_ID`, `recipe_ID`, `recipe_Name`, `recipe_Description`, `category`, `time`, `private_recipe`, `servings`, `difficulty`, `picture`, `times_cooked`, `ingredients`, `appliances`) VALUES ('$user_ID', NULL, '$name', '$desc', '$category', '$time', '$private', '$servings', '$difficulty', '$picture', '$times_cooked', '$ingrs', '$apps')";
+      $query = "INSERT INTO `recipe` (`user_ID`, `recipe_ID`, `recipe_Name`, `recipe_Description`, `category`, `time`, `private_recipe`, `servings`, `difficulty`, `picture`, `times_cooked`, `ingredients`, `appliances`) VALUES ('$user_ID', NULL, '$name', '$desc', '$category', '$time', '$private', '$servings', '$difficulty', '$picture', '$times_cooked', '$ingrs', '$apps')";
 	    $result = mysqli_query($con, $query);
 	}
 
