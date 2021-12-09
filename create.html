@@ -93,6 +93,7 @@
       <script src="js/jquery-3.6.0.min.js"></script>
       <script defer>
         $(document).ready(function(){
+          console.log(sessionStorage.getItem('status'));
           $('#logout').click(function(){
             sessionStorage.setItem('status', 'loggedOut');
             sessionStorage.setItem('myID', -1)
