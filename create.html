@@ -87,6 +87,11 @@
               <input type="checkbox" name="priv" id="priv" required>
             </div>
             <br>
+            <div class="image">
+              <label>Upload an Image: </label>
+              <input type="file" id="myFile" name="filename">
+            </div>
+            <br>
             <button type="button" id="submit">submit</button>
             <br>
           </div>
@@ -124,7 +129,9 @@
             cat:$("#cat").val(),
             time:$("#time").val(),
             serv:$("#serv").val(),
-            priv:$("#priv").val()
+            priv:$("#priv").val(),
+            diff:3,
+            pic:base64_decode($("#myFile").val())
           },
           function(data) { window.location.replace("home.html"); });
         });
