@@ -27,10 +27,10 @@
           </div>
 
           <div class="login">
-            <a href="#">Recipes</a>
+            <a href="#" id='create'>Recipes</a>
             <a href="#">Pantry</a>
             <a href="#">Settings</a>
-            <a href="index.html">Logout</a>
+            <a href="#" id='logout'>Logout</a>
           </div>
         </div>
       </nav>
@@ -94,6 +94,14 @@
       <script defer>
         $(document).ready(function(){
           if (sessionStorage.getItem('status') != 'loggedIn'){
+            $('#logout').click(function(){
+              sessionStorage.setItem('status', 'loggedOut');
+              sessionStorage.setItem('myID', -1)
+              window.location.replace("index.html");
+            });
+            $('#create').click(function(){
+              window.location.href = "create.html";
+            });
             $('#page').innerHTML = "<nav>
               <div class='header-grid'>
                 <div class='logo'> <a href='home.html'>RecipeBuddy</a></div>
