@@ -63,7 +63,7 @@
   </style>
 </head>
 <body>
-    <form>
+    <form id="#mainform">
         <div class="container">
             <h1> Welcome Back </h1>
             <label>Username: </label>
@@ -106,7 +106,7 @@
           }
         }
         $("#submit").click(loginSubmit);
-        $('form').keypress(function(event) {
+        $('#mainform').keypress(function(event) {
             if (event.keyCode == 13 || event.which == 13) {
                 loginSubmit();
             }

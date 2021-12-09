@@ -12,7 +12,7 @@
     <link href="css/normalize.css" rel="stylesheet">
     <link rel="icon" href="https://static.thenounproject.com/png/369577-200.png">
   </head>
-  <body onload="checkLogin()">
+  <body>
     <main id="page">
       <nav>
         <div class="header-grid">
@@ -20,9 +20,9 @@
 
           <!--- Search Bar --->
           <div class="search">
-            <form action="search.php">
-              <input type="text" placeholder="Search.." name="search" size="60">
-              <button type="submit"><i class="fa fa-search"></i></button>
+            <form action="search.html">
+              <input type="text" placeholder="Search.." name="q" size="60" id="query">
+              <button id="submitSearch"><i class="fa fa-search"></i></button>
             </form>
           </div>
 
@@ -108,12 +108,13 @@
       </div>
     </main>
     <footer><p>DEMO by Team Anonymous</p></footer>
+    <script src="js/jquery-3.6.0.min.js"></script>
     <script>
-        function checkLogin(){
-            if (sessionStorage.getItem('status') === 'loggedIn'){
-              window.location.replace("home.html");
-            }
+      $(document).ready(function(){
+        if (sessionStorage.getItem('status') === 'loggedIn'){
+          window.location.replace("home.html");
         }
+      });
     </script>
   </body>
 </html>

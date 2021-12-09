@@ -20,17 +20,17 @@
 
           <!-- Search Bar -->
           <div class="search">
-            <form>
-              <input type="text" placeholder="Search.." name="search" size="60" id="query">
-              <button id="submit"><i class="fa fa-search"></i></button>
+            <form action="search.html">
+              <input type="text" placeholder="Search.." name="q" size="60" id="query">
+              <button id="submitSearch"><i class="fa fa-search"></i></button>
             </form>
           </div>
 
           <div class="login">
-            <a href="#" onclick='createRecipe()'>Recipes</a>
+            <a href="#" id='create'>Recipes</a>
             <a href="#">Pantry</a>
             <a href="#">Settings</a>
-            <a href="#" onClick='logout()'>Logout</a>
+            <a href="#" id='logout'>Logout</a>
           </div>
         </div>
       </nav>
@@ -189,30 +189,19 @@
     <footer><p>DEMO by Team Anonymous</p></footer>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script>
-        function checkLogin(){
-            if (sessionStorage.getItem('status') != 'loggedIn'){
-              window.location.replace("index.html");
-            }
+      $(document).ready(function(){
+        if (sessionStorage.getItem('status') != 'loggedIn'){
+          window.location.replace("index.html");
         }
-        function logout(){
+        $('#logout').click(function(){
           sessionStorage.setItem('status', 'loggedOut');
           sessionStorage.setItem('myID', -1)
           window.location.replace("index.html");
-        }
-        function createRecipe(){
-          window.location.replace("create.html")
-        }
-        var searchSubmit = function(){
-          console.log("search.html?q=" + $("#query").val());
-          window.location.href = "search.html?q=" + $("#query").val();
-        }
-
-        $("#submit").click(searchSubmit);
-        $('form').keypress(function(event) {
-            if (event.keyCode == 13 || event.which == 13) {
-                searchSubmit();
-            }
         });
+        $('#create').click(function(){
+          window.location.href = "create.html";
+        });
+      });
     </script>
   </body>
 </html>

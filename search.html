@@ -20,17 +20,17 @@
 
           <!-- Search Bar -->
           <div class="search">
-            <form>
-              <input type="text" placeholder="Search.." name="search" size="60" id="query">
-              <button id="submit"><i class="fa fa-search"></i></button>
+            <form action="search.html">
+              <input type="text" placeholder="Search.." name="q" size="60" id="query">
+              <button id="submitSearch"><i class="fa fa-search"></i></button>
             </form>
           </div>
 
           <div class="login">
-            <a href="#" onclick='createRecipe()'>Recipes</a>
+            <a href="#" id='create'>Recipes</a>
             <a href="#">Pantry</a>
             <a href="#">Settings</a>
-            <a href="#" onClick='logout()'>Logout</a>
+            <a href="#" id='logout'>Logout</a>
           </div>
         </div>
       </nav>
@@ -42,7 +42,45 @@
     <footer><p>DEMO by Team Anonymous</p></footer>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script>
+      $(document).ready(function(){
+        $('#logout').click(function(){
+          sessionStorage.setItem('status', 'loggedOut');
+          sessionStorage.setItem('myID', -1)
+          window.location.replace("index.html");
+        });
+        $('#create').click(function(){
+          window.location.href = "create.html";
+        });
 
+        var query = window.location.search.substring(1).substring(2);
+        console.log(query);
+
+        var resultsContainer = document.getElementById( "search_results" );
+
+        // create XMLHttpRequest object
+        var xmlhttp = new XMLHttpRequest();
+
+        // create function that is called when request is completed
+        xmlhttp.onreadystatechange = function() {
+            if ( xmlhttp.readyState === 4 && xmlhttp.status === 200 ) {
+                var response=xmlhttp.responseText;
+                var outputPosts;
+                try{
+                    outputPosts = JSON.parse( response );
+                }
+                catch( e ){
+                    return;
+                }
+                for( var i = 0; i < outputPosts.length; i++ ){
+                    resultsContainer.innerHTML += "<a href='recipe.html?" + outputPosts[i].recipe_ID + "'><div class='card' id='result_" + i + "'><ul><li><h1>" + outputPosts[i].recipe_Name + "</h1></li><li>" + outputPosts[i].time + " Minutes</li><li class='max-lines'> " + outputPosts[i].recipe_description + "</li></ul></div></a>";
+                }
+            }
+        };
+
+        // send request to fetch searchDB.php
+        xmlhttp.open( "GET", "searchDB.php?search=" + query, true );
+        xmlhttp.send();
+      });
     </script>
   </body>
 </html>
