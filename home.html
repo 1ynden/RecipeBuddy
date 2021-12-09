@@ -204,7 +204,7 @@
         }
         var searchSubmit = function(){
           console.log("search.html?q=" + $("#query").val());
-          window.location.replace("search.html?q=" + $("#query").val());
+          window.location.href = "search.html?q=" + $("#query").val();
         }
 
         $("#submit").click(searchSubmit);
