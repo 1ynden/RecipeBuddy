@@ -19,7 +19,7 @@ if( $result->num_rows > 0 ) {
         $dummyRating = $row["recipe_ID"];
         $ratingsql = "SELECT AVG(`user_rating`) FROM `recipe_ratings` WHERE `recipe_ID` = 1";
         $ratings = $con->query( $sql );
-        $output[] = array( "recipe_Name" => $row[ "recipe_Name" ], "recipe_Description" => $row[ "recipe_Description" ], "recipe_ID" => $row[ "recipe_ID" ], "time" => $row[ "time" ], "score" => $ratings[] );
+        $output[] = array( "recipe_Name" => $row[ "recipe_Name" ], "recipe_Description" => $row[ "recipe_Description" ], "recipe_ID" => $row[ "recipe_ID" ], "time" => $row[ "time" ], "score" => $ratings[ "AVG(`user_rating`)" ] );
     }
 }
 $con->close();
