@@ -33,7 +33,7 @@
       </nav>
       <div class="trending">
         <h1><br>Trending Recipes</h1>
-        <div class="card">
+        <div class="card" id="gbc">
           <img src="img\casserole.jpg" alt="Source:https://hips.hearstapps.com/delish/assets/17/38/1505763623-green-bean-casserole-148-1.jpg"/>
           <ul>
             <li><h1>Green Bean Casserole</h1></li>
@@ -114,6 +114,9 @@
         if (sessionStorage.getItem('status') === 'loggedIn'){
           window.location.replace("home.html");
         }
+        $('#gbc').click(function(){
+          window.location.href = "recipe.html?pgid=2";
+        });
       });
     </script>
   </body>

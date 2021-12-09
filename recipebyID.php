@@ -37,6 +37,7 @@ if(isset($_POST["searchID"]))
 			$output.=$row_search[10]."||"; //times cooked
       $output.=$row_search[11]."||"; //ingredients
       $output.=$row_search[12]."||"; //appliances
+      $output.=$row_search[13]."||"; //steps
       echo $output;exit;
     }
 
