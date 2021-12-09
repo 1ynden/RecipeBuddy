@@ -144,6 +144,8 @@ div h1{
   margin-bottom: 40px;
 }
 footer{
+  position: fixed;
+  bottom: 0;
   background-color: #AF4C50;
   color: #fee;
   text-align: center;
