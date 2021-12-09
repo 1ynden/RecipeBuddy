@@ -35,6 +35,8 @@ if(isset($_POST["searchID"]))
 			$output.=$row_search[8]."||"; //difficulty
 			$output.='<img src="data:image/jpeg;base64,'.base64_encode($row_search[9]).'"/>||'; //BLOB image
 			$output.=$row_search[10]."||"; //times cooked
+      $output.=$row_search[11]."||"; //ingredients
+      $output.=$row_search[12]."||"; //appliances
       echo $output;exit;
     }
 
