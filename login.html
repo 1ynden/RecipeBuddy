@@ -78,7 +78,7 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script defer>
       $(document).ready(function(){
-        $("#submit").click(function(){
+        var loginSubmit = function(){
           var user = $("#uname").val();
           var pass = $("#pass").val();
 
@@ -104,6 +104,12 @@
               }
             });
           }
+        }
+        $("#submit").click(loginSubmit);
+        $('form').keypress(function(event) {
+            if (event.keyCode == 13 || event.which == 13) {
+                loginSubmit();
+            }
         });
       });
     </script>

@@ -21,8 +21,8 @@
           <!-- Search Bar -->
           <div class="search">
             <form action="search.php">
-              <input type="text" placeholder="Search.." name="search" size="60">
-              <button type="submit"><i class="fa fa-search"></i></button>
+              <input type="text" placeholder="Search.." name="search" size="60" id="query">
+              <button id="submit"><i class="fa fa-search"></i></button>
             </form>
           </div>
 
@@ -201,6 +201,17 @@
         function createRecipe(){
           window.location.replace("create.html")
         }
+        var searchSubmit = function(){
+            var query = $("#query").val();
+            window.location.replace("search.html?q=" + searchSubmit);
+        }
+
+        $("#submit").click(searchSubmit);
+        $('form').keypress(function(event) {
+            if (event.keyCode == 13 || event.which == 13) {
+                searchSubmit();
+            }
+        });
     </script>
   </body>
 </html>
