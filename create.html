@@ -131,7 +131,7 @@
             serv:$("#serv").val(),
             priv:$("#priv").val(),
             diff:3,
-            pic:base64_decode($("#myFile").val())
+            pic:$("#myFile").val()
           },
           function(data) { window.location.replace("home.html"); });
         });
