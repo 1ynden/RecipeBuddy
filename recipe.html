@@ -101,9 +101,11 @@
             }
 
             var apps = data.split("||")[9];
-            for (let i = 0; i < apps.length; i++){
-              if(apps.split(",")[i] === "undefined"){break;}
-              document.getElementById('reqs').innerHTML += ("<li>" + apps.split(",")[i] + "</li>");
+            if(!$.trim(apps)){break;}
+            else{
+              for (let i = 0; i < apps.length; i++){
+                document.getElementById('reqs').innerHTML += ("<li>" + apps.split(",")[i] + "</li>");
+              }
             }
           }
         });
