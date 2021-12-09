@@ -79,7 +79,7 @@
                 }
                 else{resultsContainer.innerHTML = "<div class='trending'>";}
                 for( var i = 0; i < outputPosts.length; i++ ){
-                    resultsContainer.innerHTML += "<a href='recipe.html?pgid=" + outputPosts[i].recipe_ID + "'><div class='card' id='result_" + i + "'><ul><li><h1>" + outputPosts[i].recipe_Name + "</h1></li><li>" + outputPosts[i].time + " Minutes</li><li class='max-lines'> " + outputPosts[i].recipe_Description + "</li></ul></div></a>";
+                    resultsContainer.innerHTML += "<a href='recipe.html?pgid=" + outputPosts[i].recipe_ID + "'><div class='card' id='result_" + i + "'><ul><li><h1>" + outputPosts[i].recipe_Name + "</h1></li><li>" + (Math.round(outputPosts[i].score * 10)/10) + "</li><li>"+ outputPosts[i].time + " Minutes</li><li class='max-lines'> " + outputPosts[i].recipe_Description + "</li></ul></div></a>";
                 }
                 resultsContainer.innerHTML += "</div>";
             }
