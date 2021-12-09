@@ -45,7 +45,7 @@
     <script>
       $(document).ready(function(){
         if (sessionStorage.getItem('status') != 'loggedIn'){
-          $('#userOptions').innerHTML = "<a href='login.html'>Login</a>";
+          document.getElementById("userOptions").innerHTML = "<a href='login.html'>Login</a>";
         }
         $('#logout').click(function(){
           sessionStorage.setItem('status', 'loggedOut');

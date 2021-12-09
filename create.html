@@ -14,118 +14,121 @@
   </head>
   <body>
     <main id="page">
-      <nav>
-        <div class="header-grid">
-          <div class="logo"> <a href="home.html">RecipeBuddy</a></div>
+      <span id="mainArea">
+        <nav>
+          <div class="header-grid">
+            <div class="logo"> <a href="home.html">RecipeBuddy</a></div>
 
-          <!--- Search Bar --->
-          <div class="search">
-            <form action="search.html">
-              <input type="text" placeholder="Search.." name="q" size="60" id="query">
-              <button id="submitSearch"><i class="fa fa-search"></i></button>
-            </form>
-          </div>
-
-          <div class="login">
-            <a href="#" id='create'>Recipes</a>
-            <a href="#">Pantry</a>
-            <a href="#">Settings</a>
-            <a href="#" id='logout'>Logout</a>
-          </div>
-        </div>
-      </nav>
-      <form action="createRecipe.php" method="post">
-        <div class="body">
-          <h1> Create a Recipe</h1><div></div><div></div>
-          <div class="item">
-            <label>Recipe Name: </label>
-            <input type="text" placeholder="Enter a Name" name="name" id = "name" required>
-          </div>
-          <br>
-          <div class="item desc">
-            <label>Descrition: </label>
-            <input type="text" placeholder="Enter a Description" name="desc" id="desc" required>
-          </div>
-          <br>
-          <div class="center">
-            <div class="item">
-              <label>Ingredients: </label>
-              <input type="text" placeholder="Enter a list of ingredients" name="ingrs" id="ingrs" required>
+            <!--- Search Bar --->
+            <div class="search">
+              <form action="search.html">
+                <input type="text" placeholder="Search.." name="q" size="60" id="query">
+                <button id="submitSearch"><i class="fa fa-search"></i></button>
+              </form>
             </div>
-            <div class="item">
-              <label>Appliances: </label>
-              <input type="text" placeholder="Enter a list of appliances" name="apps" id="apps" required>
+
+            <div class="login">
+              <a href="#" id='create'>Recipes</a>
+              <a href="#">Pantry</a>
+              <a href="#">Settings</a>
+              <a href="#" id='logout'>Logout</a>
             </div>
           </div>
-          <br>
-          <div class="item desc">
-            <label>Instructions: </label>
-            <input type="text" placeholder="Enter Instructions" name="instr" id="instr" required>
-          </div>
-          <br>
-          <div class="category">
-            <label>category: </label>
+        </nav>
+        <form action="createRecipe.php" method="post">
+          <div class="body">
+            <h1> Create a Recipe</h1><div></div><div></div>
+            <div class="item">
+              <label>Recipe Name: </label>
+              <input type="text" placeholder="Enter a Name" name="name" id = "name" required>
+            </div>
             <br>
-            <input type="text" placeholder="categorys" name="cat" id="cat" required>
-          </div>
-          <br>
-          <div class="cook time">
-            <label>cook time: </label>
+            <div class="item desc">
+              <label>Descrition: </label>
+              <input type="text" placeholder="Enter a Description" name="desc" id="desc" required>
+            </div>
             <br>
-            <input type="text" placeholder="minutes" name="time" id="time" required>
-          </div>
-          <br>
-          <div class="servings">
-            <label>servings: </label>
+            <div class="center">
+              <div class="item">
+                <label>Ingredients: </label>
+                <input type="text" placeholder="Enter a list of ingredients" name="ingrs" id="ingrs" required>
+              </div>
+              <div class="item">
+                <label>Appliances: </label>
+                <input type="text" placeholder="Enter a list of appliances" name="apps" id="apps" required>
+              </div>
+            </div>
             <br>
-            <input type="text" placeholder="servings" name="serv" id="serv" required>
+            <div class="item desc">
+              <label>Instructions: </label>
+              <input type="text" placeholder="Enter Instructions" name="instr" id="instr" required>
+            </div>
+            <br>
+            <div class="category">
+              <label>category: </label>
+              <br>
+              <input type="text" placeholder="categorys" name="cat" id="cat" required>
+            </div>
+            <br>
+            <div class="cook time">
+              <label>cook time: </label>
+              <br>
+              <input type="text" placeholder="minutes" name="time" id="time" required>
+            </div>
+            <br>
+            <div class="servings">
+              <label>servings: </label>
+              <br>
+              <input type="text" placeholder="servings" name="serv" id="serv" required>
+            </div>
+            <br>
+            <div class="private">
+              <label>private: </label>
+              <input type="checkbox" name="priv" id="priv" required>
+            </div>
+            <br>
+            <button type="button" id="submit">submit</button>
+            <br>
           </div>
-          <br>
-          <div class="private">
-            <label>private: </label>
-            <input type="checkbox" name="priv" id="priv" required>
-          </div>
-          <br>
-          <button type="button" id="submit">submit</button>
-          <br>
-        </div>
-      </form>
-      <script src="js/jquery-3.6.0.min.js"></script>
-      <script defer>
-        $(document).ready(function(){
-          console.log(sessionStorage.getItem('status'));
-          $('#logout').click(function(){
-            sessionStorage.setItem('status', 'loggedOut');
-            sessionStorage.setItem('myID', -1)
-            window.location.replace("index.html");
-          });
-          $('#create').click(function(){
-            window.location.href = "create.html";
-          });
-          if (sessionStorage.getItem('status') != 'loggedIn'){
-            $('#page').innerHTML = "<nav><div class='header-grid'><div class='logo'> <a href='home.html'>RecipeBuddy</a></div><div class='search'><form action='search.html'><input type='text' placeholder='Search..'' name='q' size='60' id='query'><button id='submitSearch'><i class='fa fa-search'></i></button></form></div><div class='login'><a href='login.html'>Login</a></div></div></nav><div class='body'><h1> You need to Log In before you can create a recipe.</h1></div>";
-          }
-
-          var user_id = sessionStorage.getItem('myID');
-          console.log(user_id);
-          $('#submit').click(function(){
-            $.post("createRecipe.php",
-            {
-              user:user_id,
-              name:$("#name").val(),
-              desc:$("#desc").val(),
-              ingrs:$("#ingrs").val(),
-              apps:$("#apps").val(),
-              instr:$("#instr").val(),
-              cat:$("#cat").val(),
-              time:$("#time").val(),
-              serv:$("#serv").val(),
-              priv:$("#priv").val()
-            },
-            function(data) { window.location.replace("home.html"); });
-          });
-      });
-      </script>
+        </form>
+      </span>
     </main>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script defer>
+      $(document).ready(function(){
+        console.log(sessionStorage.getItem('status'));
+        $('#logout').click(function(){
+          sessionStorage.setItem('status', 'loggedOut');
+          sessionStorage.setItem('myID', -1)
+          window.location.replace("index.html");
+        });
+        $('#create').click(function(){
+          window.location.href = "create.html";
+        });
+        if (sessionStorage.getItem('status') != 'loggedIn'){
+          document.getElementById("userOptions").innerHTML = "<a href='login.html'>Login</a>";
+          document.getElementById("mainArea").innerHTML = "<nav><div class='header-grid'><div class='logo'> <a href='home.html'>RecipeBuddy</a></div><div class='search'><form action='search.html'><input type='text' placeholder='Search..'' name='q' size='60' id='query'><button id='submitSearch'><i class='fa fa-search'></i></button></form></div><div class='login'><a href='login.html'>Login</a></div></div></nav><div class='body'><h1> You need to Log In before you can create a recipe.</h1></div>";
+        }
+
+        var user_id = sessionStorage.getItem('myID');
+        console.log(user_id);
+        $('#submit').click(function(){
+          $.post("createRecipe.php",
+          {
+            user:user_id,
+            name:$("#name").val(),
+            desc:$("#desc").val(),
+            ingrs:$("#ingrs").val(),
+            apps:$("#apps").val(),
+            instr:$("#instr").val(),
+            cat:$("#cat").val(),
+            time:$("#time").val(),
+            serv:$("#serv").val(),
+            priv:$("#priv").val()
+          },
+          function(data) { window.location.replace("home.html"); });
+        });
+    });
+    </script>
   </body>
 </html>

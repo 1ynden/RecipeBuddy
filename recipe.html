@@ -87,7 +87,7 @@
           window.location.href = "create.html";
         });
         if (sessionStorage.getItem('status') != 'loggedIn'){
-          $('#userOptions').innerHTML = "<a href='login.html'>Login</a>";
+          document.getElementById("userOptions").innerHTML = "<a href='login.html'>Login</a>";
         }
 
         let pgID = window.location.search.substring(1).substring(5);
