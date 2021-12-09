@@ -18,8 +18,9 @@ if( $result->num_rows > 0 ) {
     while( $row = $result->fetch_assoc() ){
         $dummyRating = $row["recipe_ID"];
         $ratingsql = "SELECT AVG(`user_rating`) FROM `recipe_ratings` WHERE `recipe_ID` = 1";
-        $ratings = $con->query( $sql );
-        $output[] = array( "recipe_Name" => $row[ "recipe_Name" ], "recipe_Description" => $row[ "recipe_Description" ], "recipe_ID" => $row[ "recipe_ID" ], "time" => $row[ "time" ], "score" => $ratings );
+        $ratings = mysqli_query($con, $ratingsql);
+        $score = $ratings->fetch_array(MYSQLI_NUM);
+        $output[] = array( "recipe_Name" => $row[ "recipe_Name" ], "recipe_Description" => $row[ "recipe_Description" ], "recipe_ID" => $row[ "recipe_ID" ], "time" => $row[ "time" ], "score" => $score[0] );
     }
 }
 $con->close();
