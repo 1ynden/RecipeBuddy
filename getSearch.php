@@ -9,7 +9,7 @@ $dbName = "recigprf_recipebuddy";
 
 $con = new mysqli( $host, $user, $password, $dbName );
 
-$sql = "SELECT * FROM `recipe` WHERE MATCH( `recipe_Name`, `category` ) AGAINST( "' . $search . '" )";
+$sql = "SELECT * FROM `recipe` WHERE MATCH( `recipe_Name`, `category` ) AGAINST '$search' ";
 $result = $con->query( $sql );
 
 $output = array();
