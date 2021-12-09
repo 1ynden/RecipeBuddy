@@ -37,6 +37,7 @@
       <div class="body">
         <div>
           <h1><br>Search Results</h1>
+          <div id="search_results">Loading...</div>
 
     </main>
     <footer><p>DEMO by Team Anonymous</p></footer>
@@ -57,10 +58,8 @@
 
         var resultsContainer = document.getElementById( "search_results" );
 
-        // create XMLHttpRequest object
         var xmlhttp = new XMLHttpRequest();
 
-        // create function that is called when request is completed
         xmlhttp.onreadystatechange = function() {
             if ( xmlhttp.readyState === 4 && xmlhttp.status === 200 ) {
                 var response=xmlhttp.responseText;
@@ -69,15 +68,19 @@
                     outputPosts = JSON.parse( response );
                 }
                 catch( e ){
+                    resultsContainer.innerHTML = "Something went terribly wrong...";
                     return;
                 }
+                if(outputPosts === 0){
+                  resultsContainer.innerHTML = "No results were found.";
+                }
+                else{resultsContainer.innerHTML = '';}
                 for( var i = 0; i < outputPosts.length; i++ ){
                     resultsContainer.innerHTML += "<a href='recipe.html?" + outputPosts[i].recipe_ID + "'><div class='card' id='result_" + i + "'><ul><li><h1>" + outputPosts[i].recipe_Name + "</h1></li><li>" + outputPosts[i].time + " Minutes</li><li class='max-lines'> " + outputPosts[i].recipe_description + "</li></ul></div></a>";
                 }
             }
         };
 
-        // send request to fetch searchDB.php
         xmlhttp.open( "GET", "getSearch.php?search=" + query, true );
         xmlhttp.send();
       });
