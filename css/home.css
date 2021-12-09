@@ -99,6 +99,7 @@ nav a.active {
   padding-left: 40px;
   margin-right: auto;
   padding-right: 40px;
+  min-height: 968px;
   background-color: #fff;
   display: grid;
   grid-template-columns: 1fr 1fr;
