@@ -96,14 +96,14 @@
             document.getElementById('cook').innerHTML = data.split("||")[7];
 
             var ingrs = data.split("||")[8];
-            for (let i = 0; i < ingrs.length; i++){
+            for (let i = 0; i < ingrs.split(",").length; i++){
               document.getElementById('reqs').innerHTML += ("<li>" + ingrs.split(",")[i] + "</li>");
             }
 
             var apps = data.split("||")[9];
             if(!$.trim(apps)){}
             else{
-              for (let i = 0; i < apps.length; i++){
+              for (let i = 0; i < apps.split(",").length; i++){
                 document.getElementById('reqs').innerHTML += ("<li>" + apps.split(",")[i] + "</li>");
               }
             }
