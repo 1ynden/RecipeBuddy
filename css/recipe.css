@@ -142,9 +142,9 @@ nav a.active {
 }
 
 .begin{
-  background-color: #413737;
+  background-color: #de4047;
   color: #fff;
-  border: 2px solid #de4047;
+  border: 2px solid #413737;
   border-radius: 4px;
   margin: auto;
 }
