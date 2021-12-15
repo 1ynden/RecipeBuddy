@@ -140,3 +140,10 @@ nav a.active {
   margin-right: 20px;
   border-radius: 10px;
 }
+
+.begin{
+  background-color: #413737;
+  color: #fff;
+  border: 2px solid #de4047;
+  border-radius: 4px;
+}

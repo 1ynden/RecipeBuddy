@@ -46,16 +46,8 @@
 
         <span id="imag">Image</span>
         <div class="box">
-          <h1> Step 1:</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Vestibulum non justo ultrices, pellentesque metus id, eleifend
-            ligula. In vitae libero diam. Mauris ut consequat ante, eu
-            consequat erat. Suspendisse nec malesuada nibh. Vivamus
-            consectetur aliquet eros, quis semper nisi dictum ac. Donec odio
-             diam, vulputate feugiat nisi in, viverra consequat dui. Proin
-             vitae sem posuere, consequat arcu nec, molestie orci. Cras
-             laoreet lorem mauris, id porttitor tortor pharetra nec. Morbi
-             in sem malesuada, hendrerit nibh ac, malesuada augue.</p>
+          <h1><span id="stepNum">Press the button below to begin cooking.</span></h1>
+          <span id="step"><button id="begin" class="begin">Begin!</button></span>
         </div>
         <div class="backdrop">
           <ul>
@@ -70,14 +62,16 @@
           </ul>
         </div>
         <div class="buttons">
-          <button type="button">Previous Step</button>
-          <button type="button">Next Step</button>
+          <button type="button" id="prev">Previous Step</button>
+          <button type="button" id="next">Next Step</button>
         </div>
       </div>
     </main>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script defer>
       $(document).ready(function(){
+        var step = 0;
+        var steps = [];
         $('#logout').click(function(){
           sessionStorage.setItem('status', 'loggedOut');
           sessionStorage.setItem('myID', -1)
@@ -85,6 +79,20 @@
         });
         $('#create').click(function(){
           window.location.href = "create.html";
+        });
+        $('#prev').click(function(){
+          if(step > 1){
+            step--;
+            document.getElementById("stepNum").innerHTML = "Step " + step;
+            document.getElementById("step").innerHTML = "<p>" + steps[step-1] + "</p>";
+          }
+        });
+        $('#next').click(function(){
+          if(step < steps.length-1){
+            step++;
+            document.getElementById("stepNum").innerHTML = "Step " + step;
+            document.getElementById("step").innerHTML = "<p>" + steps[step-1] + "</p>";
+          }
         });
         if (sessionStorage.getItem('status') != 'loggedIn'){
           document.getElementById("userOptions").innerHTML = "<a href='login.html'>Login</a>";
@@ -121,9 +129,6 @@
             }
 
             var steps = data.split("||")[10];
-            for (let i = 0; i < ingrs.split(",").length; i++){
-              document.getElementById('reqs').innerHTML += ("<li>" + ingrs.split(",")[i] + "</li>");
-            }
           }
         });
       });
