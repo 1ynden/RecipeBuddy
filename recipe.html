@@ -133,7 +133,10 @@
               }
             }
 
-            var steps = data.split("||")[10].split('.');
+            steps = data.split("||")[10].split('.');
+            for (let i = 0; i < steps.length; i++){
+              console.log(steps[i]);
+            }
           }
         });
       });
