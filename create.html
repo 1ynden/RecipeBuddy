@@ -28,7 +28,7 @@
             </div>
 
             <div class="login" id="userOptions">
-              <a href="#" id='create'>Recipes</a>
+              <a href="#" id='create'>Create</a>
               <a href="#">Pantry</a>
               <a href="#">Settings</a>
               <a href="#" id='logout'>Logout</a>
@@ -65,31 +65,31 @@
             </div>
             <br>
             <div class="category">
-              <label>category: </label>
+              <label>Category: </label>
               <br>
-              <input type="text" placeholder="categorys" name="cat" id="cat" required>
+              <input type="text" placeholder="Categories" name="cat" id="cat" required>
             </div>
             <br>
-            <div class="cook time">
+            <div class="Cook Time">
               <label>cook time: </label>
               <br>
               <input type="text" placeholder="minutes" name="time" id="time" required>
             </div>
             <br>
-            <div class="servings">
+            <div class="Servings">
               <label>servings: </label>
               <br>
               <input type="text" placeholder="servings" name="serv" id="serv" required>
             </div>
             <br>
-            <div class="private">
+            <div class="Private">
               <label>private: </label>
               <input type="checkbox" name="priv" id="priv" required>
             </div>
             <br>
-            <div class="image">
+            <div class="Image">
               <label>Upload an Image: </label>
-              <input type="file" id="myFile" name="filename">
+              <input type="file" accept="image/*" id="myFile" name="filename" required>
             </div>
             <br>
             <button type="button" id="submit">submit</button>
@@ -118,6 +118,7 @@
         var user_id = sessionStorage.getItem('myID');
         console.log(user_id);
         $('#submit').click(function(){
+          var image = document.getElementById("myFile");
           $.post("createRecipe.php",
           {
             user:user_id,
@@ -131,7 +132,7 @@
             serv:$("#serv").val(),
             priv:$("#priv").val(),
             diff:3,
-            pic:$("#myFile").val()
+            pic:URL.createObjectURL(image.target.files[0])
           },
           function(data) { window.location.replace("home.html"); });
         });
