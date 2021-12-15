@@ -11,8 +11,8 @@ $con = new mysqli( $host, $user, $password, $dbName );
 
 $sql = "SELECT * FROM `recipe`
         WHERE `recipe_Name` LIKE '$search'
-        OR CHARINDEX('$search', `recipe_Name`) > 0
-        OR CHARINDEX('$search', `category`) > 0";
+          OR LOCATE('$search', `recipe_Name`) > 0
+          OR LOCATE('$search', `category`) > 0";
 
 $result = $con->query( $sql );
 
