@@ -94,6 +94,20 @@
             document.getElementById("step").innerHTML = "<p>" + steps[step-1] + "</p>";
           }
         });
+        $('#next').click(function(){
+          if(step < steps.length-1){
+            step++;
+            document.getElementById("stepNum").innerHTML = "Step " + step;
+            document.getElementById("step").innerHTML = "<p>" + steps[step-1] + "</p>";
+          }
+        });
+        $('#begin').click(function(){
+          if(step < steps.length-1){
+            step = 1;
+            document.getElementById("stepNum").innerHTML = "Step 1";
+            document.getElementById("step").innerHTML = "<p>" + steps[0] + "</p>";
+          }
+        });
         if (sessionStorage.getItem('status') != 'loggedIn'){
           document.getElementById("userOptions").innerHTML = "<a href='login.html'>Login</a>";
         }
