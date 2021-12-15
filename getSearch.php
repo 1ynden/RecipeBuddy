@@ -9,7 +9,7 @@ $dbName = "recigprf_recipebuddy";
 
 $con = new mysqli( $host, $user, $password, $dbName );
 
-$sql = "SELECT * FROM `recipe` WHERE `recipe_Name` LIKE '$search' OR FIND_IN_SET('$search', `category`) ";
+$sql = "SELECT * FROM `recipe` WHERE `recipe_Name` LIKE '$search' OR FIND_IN_SET('thanksgiving', `category`) > 0";
 $result = $con->query( $sql );
 
 $output = array();
