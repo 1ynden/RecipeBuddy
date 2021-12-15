@@ -146,4 +146,5 @@ nav a.active {
   color: #fff;
   border: 2px solid #de4047;
   border-radius: 4px;
+  margin: auto;
 }

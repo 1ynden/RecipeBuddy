@@ -47,7 +47,7 @@
         <span id="imag">Image</span>
         <div class="box">
           <h1><span id="stepNum">Press the button below to begin cooking.</span></h1>
-          <span id="step"><button id="begin" class="begin">Begin!</button></span>
+          <span id="step"><button id="begin" class="begin" type="button">Begin!</button></span>
         </div>
         <div class="backdrop">
           <ul>
@@ -94,18 +94,10 @@
             document.getElementById("step").innerHTML = "<p>" + steps[step-1] + "</p>";
           }
         });
-        $('#next').click(function(){
-          if(step < steps.length-1){
-            step++;
-            document.getElementById("stepNum").innerHTML = "Step " + step;
-            document.getElementById("step").innerHTML = "<p>" + steps[step-1] + "</p>";
-          }
-        });
         $('#begin').click(function(){
-          if(step < steps.length-1){
-            step = 1;
-            document.getElementById("stepNum").innerHTML = "Step 1";
-            document.getElementById("step").innerHTML = "<p>" + steps[0] + "</p>";
+          step = 1;
+          document.getElementById("stepNum").innerHTML = "Step 1";
+          document.getElementById("step").innerHTML = "<p>" + steps[0] + "</p>";
           }
         });
         if (sessionStorage.getItem('status') != 'loggedIn'){
