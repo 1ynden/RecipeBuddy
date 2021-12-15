@@ -144,6 +144,7 @@ div h1{
   margin-bottom: 40px;
 }
 footer{
+  width: 100%;
   position: fixed;
   bottom: 0;
   background-color: #AF4C50;
