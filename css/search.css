@@ -160,6 +160,9 @@ footer p{
 a{
   text-decoration: none;
 }
+.searchbox{
+  margin-bottom: 1rem;
+}
 @media (max-width: 966px){
   .header-grid div{
     font-size: 22px;
