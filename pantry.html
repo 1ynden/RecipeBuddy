@@ -78,8 +78,8 @@
           },
             function(data) {
               if(data != "NULL"){
-                data = data.split('"}')
-                for( var i = 0; i < data.length; i++ ){
+                data = data.split('"}');
+                for( var i = 0; i < data.length-1; i++ ){
                   console.log(data[i]);
                   document.getElementById("currIngrs").innerHTML += "<li>"+data[i].split(':"')[1]+"</li>";
                 }
@@ -92,8 +92,8 @@
           },
             function(data) {
               if(data != "NULL"){
-                data = data.split('"}')
-                for( var i = 0; i < data.length; i++ ){
+                data = data.split('"}');
+                for( var i = 0; i < data.length-1; i++ ){
                   document.getElementById("currApps").innerHTML += "<li>"+data[i].split(':"')[1]+"</li>";
                 }
               }
