@@ -19,7 +19,7 @@ if(isset($_POST["user"]))
 		}
 
     $query = "SELECT * FROM `user_ingredients` WHERE `user_ID` = '$user_ID'";
-    $result = $con->query( $sql );
+    $result = $con->query( $query );
 
     $output = array();
 
