@@ -28,7 +28,7 @@
 
           <div class="login" id="userOptions">
             <a href="#" id='create'>Create</a>
-            <a href="pantry.html">Pantry</a>
+            <a href="#" id='pantry'>Pantry</a>
             <a href="#">Settings</a>
             <a href="#" id='logout'>Logout</a>
           </div>
@@ -76,6 +76,9 @@
           sessionStorage.setItem('status', 'loggedOut');
           sessionStorage.setItem('myID', -1)
           window.location.replace("index.html");
+        });
+        $('#pantry').click(function(){
+          window.location.href = "index.html";
         });
         $('#create').click(function(){
           window.location.href = "create.html";

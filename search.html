@@ -28,7 +28,7 @@
 
           <div class="login" id="userOptions">
             <a href="#" id='create'>Create</a>
-            <a href="pantry.html">Pantry</a>
+            <a href="#" id='pantry'>Pantry</a>
             <a href="#">Settings</a>
             <a href="#" id='logout'>Logout</a>
           </div>
@@ -55,6 +55,9 @@
         });
         $('#create').click(function(){
           window.location.href = "create.html";
+        });
+        $('#pantry').click(function(){
+          window.location.href = "index.html";
         });
 
         var query = window.location.search.substring(1).substring(2);
