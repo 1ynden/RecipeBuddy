@@ -27,10 +27,13 @@ if(isset($_POST["user"]))
         while( $row = $result->fetch_assoc() ){
             $output[] = array( "app_Name" => $row[ "appliance" ]);
         }
+        echo( json_encode( $output ) );
+    }
+    else{
+      echo("NULL");
     }
     $con->close();
 
-    echo( json_encode( $output ) );
 	}
 
 ?>

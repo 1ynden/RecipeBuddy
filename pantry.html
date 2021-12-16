@@ -77,8 +77,10 @@
             user:user_id
           },
             function(data) {
-              for( var i = 0; i < data.length; i++ ){
-                document.getElementById("currIngrs").innerHTML += "<li>"+data[i].ingr_Name+"</li>";
+              if(data != "NULL"){
+                for( var i = 0; i < data.length; i++ ){
+                  document.getElementById("currIngrs").innerHTML += "<li>"+data[i].ingr_Name+"</li>";
+                }
               }
           });
 
@@ -87,8 +89,10 @@
             user:user_id
           },
             function(data) {
-              for( var i = 0; i < data.length; i++ ){
-                document.getElementById("currApps").innerHTML += "<li>"+data[i].app_Name+"</li>";
+              if(data != "NULL"){
+                for( var i = 0; i < data.length; i++ ){
+                  document.getElementById("currApps").innerHTML += "<li>"+data[i].app_Name+"</li>";
+                }
               }
           });
         }

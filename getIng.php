@@ -27,10 +27,12 @@ if(isset($_POST["user"]))
         while( $row = $result->fetch_assoc() ){
             $output[] = array( "ingr_Name" => $row[ "ingredient" ]);
         }
+        echo( json_encode( $output ) );
+    }
+    else{
+      echo("NULL");
     }
     $con->close();
-
-    echo( json_encode( $output ) );
 	}
 
 ?>

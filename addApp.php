@@ -19,7 +19,7 @@ if(isset($_POST["user"], $_POST["app"]))
 			die("Connection failed: " .mysqli_connect_error());
 		}
 
-      $query = "INSERT INTO `user_appliances` (`user_ID`, `appliance_ID`, `appliance`) VALUES ('$user_ID', NULL, 'name')";
+      $query = "INSERT INTO `user_appliances` (`user_ID`, `appliance`) VALUES ('$user_ID', '$name')";
 	    $result = mysqli_query($con, $query);
       echo("Success");
 	}
