@@ -95,27 +95,25 @@
 
         $('#submitIng').click(function(){
           var user_id = sessionStorage.getItem('myID');
-          var ing = document.getElementById( "ingr" );
           $.post("addIng.php",
           {
             user:user_id,
-            ingr:ing.val()
+            ingr:$("#ingr").val()
           },
             function(data) {
-              document.getElementById("currIngrs").innerHTML += "<li>"+ing.val()+"</li>";
+              document.getElementById("currIngrs").innerHTML += "<li>"+$("#ingr").val()+"</li>";
           });
         });
 
         $('#submitApp').click(function(){
           var user_id = sessionStorage.getItem('myID');
-          var app = document.getElementById( "app" );
           $.post("addApp.php",
           {
             user:user_id,
-            app:app.val()
+            app:$("#app").val()
           },
             function(data) {
-              document.getElementById("currApps").innerHTML += "<li>"+app.val()+"</li>";
+              document.getElementById("currApps").innerHTML += "<li>"+$("#app").val()+"</li>";
           });
         });
 
