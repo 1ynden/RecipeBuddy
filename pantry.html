@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recipe</title>
+    <link rel="stylesheet" href="css/create.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Lato:300,900" rel="stylesheet">
+    <link href="css/mini_reset.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link rel="icon" href="https://static.thenounproject.com/png/369577-200.png">
+  </head>
+  <body>
+    <main id="page">
+      <span id="mainArea">
+        <nav>
+          <div class="header-grid">
+            <div class="logo"> <a href="home.html">RecipeBuddy</a></div>
+
+            <!--- Search Bar --->
+            <div class="search">
+              <form action="search.html">
+                <input type="text" placeholder="Search.." name="q" size="60" id="query">
+                <button id="submitSearch"><i class="fa fa-search"></i></button>
+              </form>
+            </div>
+
+            <div class="login" id="userOptions">
+              <a href="#" id='create'>Create</a>
+              <a href="#">Pantry</a>
+              <a href="#">Settings</a>
+              <a href="#" id='logout'>Logout</a>
+            </div>
+          </div>
+        </nav>
+        <form action="addIng.php" method="post">
+          <div class="body">
+            <h1> Add Ingredient:</h1><br>
+            <input type="text" id="ingr" placeholder="Enter an Ingredient" name="ingr" required>
+            <button type="button" id="submitIng">+</button>
+            <ul><span id="currIngrs"></span></ul>
+          </div>
+        </form>
+
+        <form action="addApp.php" method="post">
+          <div class="body">
+            <h1> Add Appliance:</h1><br>
+            <input type="text" id="app" placeholder="Enter an Appliance" name="app" required>
+            <button type="button" id="submitApp">+</button>
+            <ul><span id="currApps"></span></ul>
+          </div>
+        </form>
+      </span>
+    </main>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script defer>
+      $(document).ready(function(){
+        console.log(sessionStorage.getItem('status'));
+        $('#logout').click(function(){
+          sessionStorage.setItem('status', 'loggedOut');
+          sessionStorage.setItem('myID', -1)
+          window.location.replace("index.html");
+        });
+        $('#create').click(function(){
+          window.location.href = "create.html";
+        });
+        if (sessionStorage.getItem('status') != 'loggedIn'){
+          document.getElementById("userOptions").innerHTML = "<a href='login.html'>Login</a>";
+          document.getElementById("mainArea").innerHTML = "<nav><div class='header-grid'><div class='logo'> <a href='home.html'>RecipeBuddy</a></div><div class='search'><form action='search.html'><input type='text' placeholder='Search..'' name='q' size='60' id='query'><button id='submitSearch'><i class='fa fa-search'></i></button></form></div><div class='login'><a href='login.html'>Login</a></div></div></nav><div class='body'><h1> You need to Log In before you can edit your pantry.</h1></div>";
+        }
+        else{
+          var user_id = sessionStorage.getItem('myID');
+          $.post("getIng.php",
+          {
+            user:user_id
+          },
+            function(data) {
+              for( var i = 0; i < data.length; i++ ){
+                document.getElementById("currIngrs").innerHTML += "<li>"+data[i].ingr_Name+"</li>";
+              }
+          });
+
+          $.post("getApps.php",
+          {
+            user:user_id
+          },
+            function(data) {
+              for( var i = 0; i < data.length; i++ ){
+                document.getElementById("currApps").innerHTML += "<li>"+data[i].app_Name+"</li>";
+              }
+          });
+        }
+
+        $('#submitIng').click(function(){
+          var user_id = sessionStorage.getItem('myID');
+          var ing = document.getElementById( "ingr" );
+          $.post("addIng.php",
+          {
+            user:user_id,
+            ingr:ing.val()
+          },
+            function(data) {
+              document.getElementById("currIngrs").innerHTML += "<li>"+ing.val()+"</li>";
+          });
+        });
+
+        $('#submitApp').click(function(){
+          var user_id = sessionStorage.getItem('myID');
+          var app = document.getElementById( "app" );
+          $.post("addApp.php",
+          {
+            user:user_id,
+            app:app.val()
+          },
+            function(data) {
+              document.getElementById("currApps").innerHTML += "<li>"+app.val()+"</li>";
+          });
+        });
+
+    });
+    </script>
+  </body>
+</html>
