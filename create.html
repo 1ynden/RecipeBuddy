@@ -130,15 +130,15 @@
 
         function previewFile(){
           const preview = document.querySelector('img');
-          const file = document.querySelector('input[type=file]').files[0];
+          const inFile = document.querySelector('input[type=file]').files[0];
           const reader = new FileReader();
 
           reader.addEventLstener("load", function() {
-            preview/src = reader.result;
+            preview.src = reader.result;
           }, false);
 
-          if (file){
-            reader.readAsDataURL(file);
+          if (inFile){
+            reader.readAsDataURL(inFile);
           }
         }
 
@@ -157,7 +157,7 @@
             serv:$("#serv").val(),
             priv:$("#priv").val(),
             diff:$("#diff").val(),
-            pic:URL.createObjectURL(image.target.files[0])
+            pic:inFile
           },
           function(data) { window.location.replace("home.html"); });
         });
