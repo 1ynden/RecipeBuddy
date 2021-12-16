@@ -160,7 +160,7 @@
             diff:$("#diff").val(),
             pic:reader.readAsDataURL(inFile)
           },
-          function(data) { window.location.replace("home.html"); });
+          function(data) { window.location.href = ("recipe.html?pgid=" + data); });
         });
     });
     </script>
