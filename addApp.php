@@ -2,8 +2,8 @@
 
 if(isset($_POST["user"], $_POST["app"]))
     {
-        $user_ID = $_POST["app"];
-        $name = $_POST["ingr"];
+        $user_ID = $_POST["user"];
+        $name = $_POST["app"];
 
 		$hostName = "localhost";
 		$username_db = "recigprf_root";
