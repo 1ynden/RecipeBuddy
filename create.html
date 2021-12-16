@@ -110,6 +110,19 @@
     </main>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script defer>
+      function previewFile(){
+        const preview = document.querySelector('img');
+        const inFile = document.querySelector('input[type=file]').files[0];
+        const reader = new FileReader();
+
+        reader.addEventLstener("load", function() {
+          preview.src = reader.result;
+        }, false);
+
+        if (inFile){
+          reader.readAsDataURL(inFile);
+        }
+      }
       $(document).ready(function(){
         console.log(sessionStorage.getItem('status'));
         $('#logout').click(function(){
@@ -127,20 +140,6 @@
 
         var user_id = sessionStorage.getItem('myID');
         console.log(user_id);
-
-        function previewFile(){
-          const preview = document.querySelector('img');
-          const inFile = document.querySelector('input[type=file]').files[0];
-          const reader = new FileReader();
-
-          reader.addEventLstener("load", function() {
-            preview.src = reader.result;
-          }, false);
-
-          if (inFile){
-            reader.readAsDataURL(inFile);
-          }
-        }
 
         $('#submit').click(function(){
 
