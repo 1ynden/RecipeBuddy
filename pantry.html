@@ -79,7 +79,9 @@
             function(data) {
               if(data != "NULL"){
                 console.log(data);
+                console.log(data.length);
                 for( var i = 0; i < data.length; i++ ){
+                  console.log(data[i]);
                   document.getElementById("currIngrs").innerHTML += "<li>"+data[i].ingr_Name+"</li>";
                 }
               }
