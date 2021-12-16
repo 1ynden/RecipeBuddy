@@ -99,7 +99,7 @@
             <br>
             <div class="Image">
               <label>Upload an Image: </label>
-              <input type="file" onchange="previewFile()" accept="image/*" id="myFile" name="filename" required><br>
+              <input type="file" accept="image/*" id="myFile" name="filename" required><br>
               <img src="" height="200" alt="Image preview...">
             </div>
             <br>
@@ -111,19 +111,6 @@
     </main>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script defer>
-      function previewFile(){
-        const preview = document.querySelector('img');
-        const inFile = document.querySelector('input[type=file]').files[0];
-        const reader = new FileReader();
-
-        reader.addEventListener("load", function() {
-          preview.src = reader.result;
-        }, false);
-
-        if (inFile){
-          reader.readAsDataURL(inFile);
-        }
-      }
       $(document).ready(function(){
         console.log(sessionStorage.getItem('status'));
         $('#logout').click(function(){
@@ -138,6 +125,19 @@
           document.getElementById("userOptions").innerHTML = "<a href='login.html'>Login</a>";
           document.getElementById("mainArea").innerHTML = "<nav><div class='header-grid'><div class='logo'> <a href='home.html'>RecipeBuddy</a></div><div class='search'><form action='search.html'><input type='text' placeholder='Search..'' name='q' size='60' id='query'><button id='submitSearch'><i class='fa fa-search'></i></button></form></div><div class='login'><a href='login.html'>Login</a></div></div></nav><div class='body'><h1> You need to Log In before you can create a recipe.</h1></div>";
         }
+        $('#myFile').change(function() {
+          const preview = document.querySelector('img');
+          const inFile = document.querySelector('input[type=file]').files[0];
+          const reader = new FileReader();
+
+          reader.addEventListener("load", function() {
+            preview.src = reader.result;
+          }, false);
+
+          if (inFile){
+            reader.readAsDataURL(inFile);
+          }
+        });
 
         var user_id = sessionStorage.getItem('myID');
         console.log(user_id);
