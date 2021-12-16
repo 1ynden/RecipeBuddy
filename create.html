@@ -158,10 +158,7 @@
         $('#submit').click(function(){
           const inFile = document.querySelector('input[type=file]').files[0];
           const reader = new FileReader();
-          if (inFile){
-            reader.readAsDataURL(inFile);
-          }
-          var blob = dataURItoBlob(reader);
+          var blob = dataURItoBlob(reader.readAsDataURL(inFile));
           var formData = new FormData();
 
           formData.append('user', user_id);
